@@ -6,7 +6,7 @@ export const uploadFile = async (req: any, res: Response) => {
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });
     }
-    await saveCsvData(req.file.path);
+    await saveCsvData(req.file.buffer);
 
     return res.status(200).send({ message: "The file was uploaded successfully." });
   } catch (error) {

@@ -1,12 +1,11 @@
 import { parse } from "csv-parse";
 import { initDb } from "../utils/db";
-
-import fs from "fs";
 import { User } from "../types/user";
+import { Readable } from "stream";
 
-export async function saveCsvData(filePath: string): Promise<void> {
+export async function saveCsvData(fileBuffer: Buffer): Promise<void> {
   const db = await initDb();
-  const parser = fs.createReadStream(filePath).pipe(parse({ columns: true }));
+  const parser = Readable.from(fileBuffer).pipe(parse({ columns: true }));
 
   for await (const record of parser) {
     const user: User = {
