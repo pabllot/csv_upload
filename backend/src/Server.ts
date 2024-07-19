@@ -1,13 +1,12 @@
 import express from "express";
+
 import filesRoutes from "./routes/files";
 import usersRoutes from "./routes/users";
-import bodyParser from "body-parser";
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 const port = 3000;
 
+app.use(express.json());
 app.use("/api/users", usersRoutes);
 app.use("/api/files", filesRoutes);
 

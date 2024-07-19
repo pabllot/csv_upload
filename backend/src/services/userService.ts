@@ -1,22 +1,14 @@
 import { initDb } from "../utils/db";
 
-export const searchUsers = async (querys: any) => {
+export const searchUsers = async (query: any) => {
   const db = await initDb();
-  const query = querys as string;
+  const field = query as string;
   const users = await db.all("SELECT * FROM users WHERE name LIKE ? OR city LIKE ? OR country LIKE ? OR favorite_sport LIKE ?", [
-    `%${query}%`,
-    `%${query}%`,
-    `%${query}%`,
-    `%${query}%`,
+    `%${field}%`,
+    `%${field}%`,
+    `%${field}%`,
+    `%${field}%`,
   ]);
-
-  return { data: users };
-};
-
-export const searchUsersNoQuery = async (querys: any) => {
-  const db = await initDb();
-  const query = querys as string;
-  const users = await db.all("SELECT * FROM users ");
 
   return { data: users };
 };
