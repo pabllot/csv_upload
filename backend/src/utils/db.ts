@@ -1,9 +1,15 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 
-export async function initDb() {
+/**
+ * Initializes and returns a SQLite database instance.
+ *
+ * @param filename - The database filename. Use ":memory:" for an in-memory database.
+ * @returns The database instance.
+ */
+export async function initDb(filename: string = "./database.db") {
   const db = await open({
-    filename: "./database.db",
+    filename,
     driver: sqlite3.Database,
   });
 

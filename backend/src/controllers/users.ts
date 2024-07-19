@@ -7,7 +7,6 @@ export const getUsers = async (req: Request, res: Response) => {
     const result = await searchUsers(query);
     return res.status(200).send(result);
   } catch (error) {
-    console.log(error);
     return res.status(400).send({ message: "Error uploading the file. Please try again later." });
   }
 };

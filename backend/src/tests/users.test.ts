@@ -6,7 +6,7 @@ describe("GET /api/users", () => {
   let db: any;
 
   beforeAll(async () => {
-    db = await initDb();
+    db = await initDb(":memory:");
     // Insert test data into the database
     await db.run(`INSERT INTO users (name, city, country, favorite_sport) VALUES (?, ?, ?, ?)`, ["John Doe", "New York", "USA", "Basketball"]);
     await db.run(`INSERT INTO users (name, city, country, favorite_sport) VALUES (?, ?, ?, ?)`, ["Jane Smith", "London", "UK", "Football"]);

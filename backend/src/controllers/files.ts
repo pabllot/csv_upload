@@ -10,7 +10,6 @@ export const uploadFile = async (req: any, res: Response) => {
 
     return res.status(200).send({ message: "The file was uploaded successfully." });
   } catch (error) {
-    console.log(error);
     return res.status(500).send({ message: "Error uploading the file. Please try again later." });
   }
 };
