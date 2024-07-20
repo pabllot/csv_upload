@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import App from "./App";
 import "./styles/global.scss";
-import { Toast } from "./Toast";
+import { Toast } from "./components/Toast";
 
 const queryClient = new QueryClient();
 

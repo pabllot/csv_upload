@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { useQueryClient } from "@tanstack/react-query";
 import FileUpload from "../components/FileUpload";
 import { api } from "../services/api";
-import { notify } from "../Toast";
+import { notify } from "../components/Toast";
 
 jest.mock("@tanstack/react-query", () => ({
   useQueryClient: jest.fn(),
@@ -14,7 +14,7 @@ jest.mock("../services/api", () => ({
   },
 }));
 
-jest.mock("../Toast", () => ({
+jest.mock("../components/Toast", () => ({
   notify: jest.fn(),
 }));
 

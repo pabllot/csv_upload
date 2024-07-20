@@ -8,6 +8,14 @@ const config = {
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx,ts,tsx}",
+    "!src/index.tsx", // Exclude entry point if not needed
+    "!src/**/*.d.ts", // Exclude type declaration files
+  ],
+  coverageDirectory: "coverage",
+  coverageReporters: ["html", "text", "lcov"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 

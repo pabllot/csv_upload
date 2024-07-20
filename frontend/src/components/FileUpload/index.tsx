@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { api } from "../../services/api";
 import styles from "./styles.module.scss";
-import { notify } from "../../Toast";
+import { notify } from "../Toast";
 
 const FileUpload = ({ query }: { query: string }) => {
   const queryClient = useQueryClient();

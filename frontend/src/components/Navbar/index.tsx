@@ -9,7 +9,7 @@ type Props = {
 
 export const Navbar = ({ query, setQuery }: Props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="navbar">
       <div className={styles.wrapper}>
         <FileUpload query={query} />
         <SearchBar query={query} setQuery={setQuery} />
