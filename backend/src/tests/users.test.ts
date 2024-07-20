@@ -6,7 +6,7 @@ describe("GET /api/users", () => {
   let db: any;
 
   beforeAll(async () => {
-    db = await initDb(":memory:");
+    db = await initDb();
     // Insert test data into the database
     await db.run(`INSERT INTO users (name, city, country, favorite_sport) VALUES (?, ?, ?, ?)`, ["John Doe", "New York", "USA", "Basketball"]);
     await db.run(`INSERT INTO users (name, city, country, favorite_sport) VALUES (?, ?, ?, ?)`, ["Jane Smith", "London", "UK", "Football"]);
@@ -61,6 +61,7 @@ describe("GET /api/users", () => {
   it("should return a 200 status and partial matches for a valid query", async () => {
     const res = await request(app).get("/api/users").query({ q: "Football" });
     expect(res.status).toBe(200);
+    console.log("kdsaopkfsodf", res.body);
     expect(res.body.data).toContainEqual(
       expect.objectContaining({
         name: "Jane Smith",
