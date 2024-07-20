@@ -1,6 +1,7 @@
+import { User } from "../../types";
 import styles from "./styles.module.scss";
 
-export const Card = ({ user }: any) => {
+export const Card = ({ user }: { user: User }) => {
   return (
     <div key={user.id} className={styles.wrapper}>
       <p>Name</p> <strong> {user.name}</strong>

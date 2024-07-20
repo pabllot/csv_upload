@@ -4,7 +4,12 @@ import { useState } from "react";
 
 import styles from "./styles.module.scss";
 
-export const Navbar = ({ query, setQuery }: any) => {
+type Props = {
+  query: string;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const Navbar = ({ query, setQuery }: Props) => {
   const queryClient = useQueryClient();
   const [file, setFile] = useState<File | null>(null);
 

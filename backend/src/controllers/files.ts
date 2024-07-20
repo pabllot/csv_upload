@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { saveCsvData } from "../services/fileService";
 
-export const uploadFile = async (req: any, res: Response) => {
+export const uploadFile = async (req: Request, res: Response) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: "No file uploaded" });

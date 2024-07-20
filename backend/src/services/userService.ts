@@ -1,17 +1,24 @@
 import { initDb } from "../utils/db";
 
-export const searchUsers = async (query?: any) => {
+// Define an interface for the User object
+interface User {
+  id: number;
+  name: string;
+  city: string;
+  country: string;
+  favorite_sport: string;
+}
+
+export const searchUsers = async (query?: string): Promise<{ data: User[] }> => {
   const db = await initDb();
 
   try {
-    let users;
+    let users: User[];
     if (!query) {
-      // If no query is provided, fetch all users
-      users = await db.all("SELECT * FROM users");
+      users = await db.all<User[]>("SELECT * FROM users");
     } else {
-      // If a query is provided, search for users based on the query
       const field = query.toLowerCase();
-      users = await db.all("SELECT * FROM users WHERE name LIKE ? OR city LIKE ? OR country LIKE ? OR favorite_sport LIKE ?", [
+      users = await db.all<User[]>("SELECT * FROM users WHERE name LIKE ? OR city LIKE ? OR country LIKE ? OR favorite_sport LIKE ?", [
         `%${field}%`,
         `%${field}%`,
         `%${field}%`,
