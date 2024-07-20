@@ -33,7 +33,7 @@ const FileUpload = ({ query }: { query: string }) => {
   };
 
   return (
-    <div className={styles.fileContainer}>
+    <div className={styles.fileContainer} data-testid="upload-button">
       <label htmlFor="file" className={styles.fileButton}>
         Select File
       </label>
