@@ -5,7 +5,7 @@ export const Cards = ({ data }: any) => {
     <>
       <div>
         {data?.map((user: any) => (
-          <Card user={user} />
+          <Card key={user.id} user={user} />
         ))}
       </div>
     </>

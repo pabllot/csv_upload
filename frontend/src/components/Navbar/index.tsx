@@ -2,6 +2,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import { api } from "../../services/api";
 import { useState } from "react";
 
+import styles from "./styles.module.scss";
+
 export const Navbar = ({ query, setQuery }: any) => {
   const queryClient = useQueryClient();
   const [file, setFile] = useState<File | null>(null);
@@ -27,11 +29,17 @@ export const Navbar = ({ query, setQuery }: any) => {
     }
   };
   return (
-    <div>
-      <h1>CSV Data Viewer</h1>
-      <input type="file" accept=".csv" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload CSV</button>
-      <input type="text" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} />
+    <div className={styles.wrapper}>
+      <div className={styles.fileContainer}>
+        <label htmlFor="file" className={styles.fileButton}>
+          Select File
+        </label>
+        <input id="file" type="file" accept=".csv" onChange={handleFileChange} className={styles.fileButton} />
+        <button disabled={!file} onClick={handleUpload} className={styles.submitButton}>
+          Upload
+        </button>
+      </div>
+      <input type="text" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} className={styles.searchBar} />
     </div>
   );
 };

@@ -2,14 +2,14 @@ import { useState } from "react";
 
 import { useCSVData } from "./hooks/useCSVData";
 import { Navbar } from "./components/Navbar";
-import { Cards } from "./components/CardContainer";
+import { Cards } from "./components/Cards";
 
 const App = () => {
   const [query, setQuery] = useState<string>("a");
   const { data } = useCSVData(query);
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <Navbar query={query} setQuery={setQuery} />
       <Cards data={data} />
     </div>
