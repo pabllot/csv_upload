@@ -8,7 +8,12 @@ const config: Config.InitialOptions = {
     "^.+\\.jsx?$": "babel-jest",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  transformIgnorePatterns: ["node_modules/(?!(your-module-to-transform|another-module))"],
+  transformIgnorePatterns: ["node_modules/"],
+  moduleDirectories: ["node_modules", "src"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  moduleNameMapper: { "^(\\.|\\.\\.)\\/(.+)\\.js": "$1/$2" },
+
+  resolver: "jest-ts-webcompat-resolver",
 };
 
 export default config;
