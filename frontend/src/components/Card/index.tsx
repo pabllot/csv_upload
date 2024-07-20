@@ -6,7 +6,7 @@ export const Card = ({ user }: any) => {
       <p>Name:</p> <strong> {user.name}</strong>
       <p>City:</p> <strong> {user.city}</strong>
       <p>country:</p> <strong> {user.country}</strong>
-      <p>favourite_sport:</p> <strong> {user.favourite_sport}</strong>
+      <p>favorite_sport:</p> <strong> {user.favorite_sport}</strong>
     </div>
   );
 };

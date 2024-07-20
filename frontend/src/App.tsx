@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Cards } from "./components/Cards";
 
 const App = () => {
-  const [query, setQuery] = useState<string>("a");
+  const [query, setQuery] = useState<string>("");
   const { data } = useCSVData(query);
 
   return (

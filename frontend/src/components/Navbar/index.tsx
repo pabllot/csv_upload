@@ -29,17 +29,19 @@ export const Navbar = ({ query, setQuery }: any) => {
     }
   };
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.fileContainer}>
-        <label htmlFor="file" className={styles.fileButton}>
-          Select File
-        </label>
-        <input id="file" type="file" accept=".csv" onChange={handleFileChange} className={styles.fileButton} />
-        <button disabled={!file} onClick={handleUpload} className={styles.submitButton}>
-          Upload
-        </button>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <div className={styles.fileContainer}>
+          <label htmlFor="file" className={styles.fileButton}>
+            Select File
+          </label>
+          <input id="file" type="file" accept=".csv" onChange={handleFileChange} className={styles.fileButton} />
+          <button disabled={!file} onClick={handleUpload} className={styles.submitButton}>
+            Upload
+          </button>
+        </div>
+        <input type="text" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} className={styles.searchBar} />
       </div>
-      <input type="text" placeholder="Search..." value={query} onChange={(e) => setQuery(e.target.value)} className={styles.searchBar} />
     </div>
   );
 };

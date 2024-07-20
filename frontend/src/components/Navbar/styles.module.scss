@@ -1,14 +1,25 @@
 /* styles.module.scss */
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 .wrapper {
+  max-width: 1200px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
-  background-color: #f8f9fa;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1366px) {
+    max-width: 1000px;
+  }
 }
 
 input[type="file"] {
