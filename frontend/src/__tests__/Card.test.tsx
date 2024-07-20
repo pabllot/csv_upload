@@ -1,14 +1,18 @@
-import { render } from "@testing-library/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// Card.test.tsx
 
-import App from "../App";
+import { render, screen } from "@testing-library/react";
+import { Card } from "../components/Card";
 
-test("Renders the main page", () => {
-  const queryClient = new QueryClient();
-  render(
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
-  );
-  expect(true).toBeTruthy();
+describe("Card", () => {
+  test("renders user information", () => {
+    const user = { id: 1, name: "John Doe", city: "New York" };
+
+    render(<Card user={user} />);
+
+    // Use regex to match parts of the text
+    expect(screen.getByText(/Name:/i)).toBeInTheDocument();
+    expect(screen.getByText(/John Doe/i)).toBeInTheDocument();
+    expect(screen.getByText(/cidade:/i)).toBeInTheDocument();
+    expect(screen.getByText(/New York/i)).toBeInTheDocument();
+  });
 });
