@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import filesRoutes from "./routes/files";
 import usersRoutes from "./routes/users";
@@ -7,6 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 app.use("/api/users", usersRoutes);
 app.use("/api/files", filesRoutes);
 
