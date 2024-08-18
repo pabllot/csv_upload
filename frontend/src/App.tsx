@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div style={{ width: "100%" }}>
       <Navbar query={query} setQuery={setQuery} />
-      <h1>Got a job in the meantime, thanks for the fast reply</h1>
+      <h1 style={{padding:'1rem', textAlign:"center"}}>Got a job in the meantime, thanks for the fast reply</h1>
     </div>
   );
 };
